@@ -12,7 +12,7 @@ I am very happy to be able to oblige my wonderful teacher by detailing a few of 
 
 According to LAEWF, github is one of the more excellent inventions there has been. It is an immensely powerful tool for collaboration in the world of computer coding. Across languages and disciplines, github provides a platform to share, explore, and develop code between members of the public and private users, collaborating both directly and indirectly. Git hosts (for our purposes) public repositories where a project can take shape and be ferried in versions between our computers. We’re going to use Github to learn Matlab, and utilize it in great part through the Mac terminal. 
 
-Git is a Version Control System, which essentially allows coders to track changes to segments of code they are working on. This is quite useful in the development of code for one’s own reference, and practically invaluable in the context of code being created by multiple users independently (whether sequentially or simultaneously). Coding is a pursuit which requires discipline, logical rigor, and precision in combination with creativity, and the ability to review the iterative development of a piece of code makes the processes of learning from it, further developing it, or utilizing it far easier and more productive activities. 
+Git is a Version Control System, which essentially allows coders to track changes to segments of code they are working on. This is quite useful in the development of code for one’s own reference, and practically invaluable in the context of code being created by multiple users independently (whether sequentially or simultaneously). Coding is a pursuit which requires discipline, logical rigor, and precision in combination with creativity, and the ability to review the iterative development of a piece of code makes the processes of learning from it, further developing it, or utilizing it far easier and more productive activities. (SEE BOTTOM FOR IMPORTANT GIT PROTOCOLS, WHICH WERE MAINLY LEFT IN THE TERMINAL SECTION ANYWAYS)
 
 # Useful shortcuts for the terminal
 
@@ -33,3 +33,12 @@ Also escape takes you out of some situations
 Also :q! gets you out of a command? 
 
 Anyways, that’s all I can remember for now, and I have a date to call someone so I will be signing off. To the grasslands! (Orangemoji)
+
+P.S. SO! the process for pushing the things back to the RGV (RenneuhGitVacheuh) is as follows. 
+
+-make your changes in the local code
+-save your changes in the local code
+-write git add <name of local file changed> 
+-write git status to verify that changes have been made (running this before the add step will yield the identity of changed files in red that have not been added) 
+-write git commit -m “[name of edits for reference]”
+-write git push to send to LouLou! (or other less interesting people) 
