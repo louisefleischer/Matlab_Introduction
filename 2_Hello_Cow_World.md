@@ -32,3 +32,7 @@ That is for next lesson!
 I am having a lovely time with this project of ours. I do have a somewhat important questions however. I think that there is a bit of uncertainty as to what it is that is supposed to be entered into either the terminal or Matlab vis a vis text/codes that you want EXACTLY copied. As a result, I think we should establish a method to distinguish as it is unclear. Should things going in always be surrounded by words on either side to establish start and stop i.e. meuh text’text’disp(text) meuh
 
 I don’t know if the initial (`) that is before the disp and the one after is supposed to be included, or if that is exactly intended to do what meuh … meuh does above. After reading some compiling errors I am assuming it does, so I suppose you can just confirm this for me!
+
+## Master Cow's answer
+
+The (`) sign is used as a specific formatting tool for the .md file that we are currently writing in. If you look at the document directly in the github.com, you will see how the page formating works. In further exercises, I will be directly sharing some matlab code with you and all those bugs should go away.
