@@ -24,6 +24,26 @@ Now is time to crack your fingers because we are going to dive straight into our
 
 ## Variables
 
+### One Meuh, Two Meuh, True Meuhs
+
+Let's play a little with types and variables. Matlab handles words and numbers differently. Logicals (true or false) are used for to assess statements. In as short as possible, this is how you should think of the three main classes of Matlab:
+
+double: numbers
+char: words
+logical: true or false
+
+There are different functions that handle each type of classes and this chapter's exercise will let you play with some of them.
+
+### Storing multiple variables
+
+You can put multiple variables in one place through the following elements:
+
+arrays: matrices
+cell: can contain variables of different types
+structures: allows to match fields with values
+
+The exercise is accessible under the file two_meuhs.m
+
 ## Loops
 
 ## Functions
