@@ -7,6 +7,11 @@
 % VachesSalers: why is this section partitioned from below? is that done by
 % the double %? and then I tried it and in fact it is! Detectiveuhmeuhmeuh!
 
+% Master_Meuh: Very well done! It takes a little bit of time to look things
+% up on the internet but it's how you will remember things. By working them
+% out. I have added two little comments in the logic section, the rest is
+% perfect!
+
 %% CLASSES
 % Matlab's three main classes:
 a_meuh = 'Meuh'; %class type is `char`
@@ -24,6 +29,7 @@ type3 = class(true_meuh);
    disp(type1);
    disp(type2);
    disp(type3);
+   
 % Matlab is designed for mathematics and therefore it is very easy to
 % handle numbers.
 
@@ -68,6 +74,8 @@ statement2 = or(LogOps1, LogOps2)
 %all are false, then the statement is false as is the case in the second
 %statement.
 
+% Master-Meuh: you can also just type LogOps1||LogOps3
+
 statement3 = not(and(LogOps1, LogOps3))
 statement4 = not(and(LogOps3, LogOps4))
 %the first one is an and statement which is false, but the not means that 
@@ -76,12 +84,16 @@ statement4 = not(and(LogOps3, LogOps4))
 %returns false because it is false that it is not the case that the
 %statement is true.
 
+% Master-Meuh: you can also just type not(LogOps1&&LogOps3)
+
 statement5 = not(or(LogOps1, LogOps2))
 statement6 = not(or(LogOps3, LogOps4))
 %here we have the same sort of thing: the or statement is false, so the
 %returned value is true because it is not the case that the statement is
 %true. second one is false because it is not the case that the inner statement
 %is false.
+
+% Master-Meuh: for you can also replace not by ~ (for instance ~LogOps1)
 
 statement7 = and(LogOps1, LogOps2)
 statement8 = and(LogOps3, LogOps4)
@@ -114,7 +126,7 @@ disp(strsplit(c));
 %% STORING
 
 % You will soon see that you will need to handle arrays with dozens of
-% numbers. Matlab was made for that! The software is though around matrices.
+% numbers. Matlab was made for that! The software is thought around matrices.
 % This is how you write matrices:
 
 A = [1 2 3 4] % row vector
