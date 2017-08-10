@@ -1,8 +1,7 @@
 % Not a lot of new things today: just a little bit more math :)
 
-% I am sorry if it's not clear, it's much easier with a drawing...
-
-clearvars % cleanup 
+% I am sorry if it's not clear, it's much easier with a drawing... 
+clearvars % cleanup QUESTION: how do you declare a global vs. local variable? 
 
 % First let's refresh those vectors we learnt about yesterday. And try out
 % the story I told you yesterday. 
@@ -14,8 +13,32 @@ clearvars % cleanup
 % Benoit 42 min to run the last 6.5 km. Using Matlabs vectors and
 % operations, find out who was the fastest over the race (compare in km/h).
 
+LDist = 0.6;
+JDist = 20; 
+BDist = 6.5;
+LTime = (14/60);
+JTime = (56/60);
+BTime = (42/60);
 
+%VS: now I will use the element by element operation you taught me about in the
+%last assignment and which we spoke about on the phone.
 
+MeuhDist = [LDist; JDist; BDist];
+MeuhTime = [LTime; JTime; BTime];
+
+MeuhVelocities = MeuhDist./MeuhTime;
+disp('The following list is displays the velocities of the teameuh!')
+disp(MeuhVelocities);
+LouLouVelo = MeuhVelocities(1)
+JameseuhVelo = MeuhVelocities(2)
+BenVelo = MeuhVelocities(3)
+
+disp('Jameseuh travelled at the greatest velocity in the race (he had a velo :))')
+%VS I know this could have been done much more easily by not including all
+%of the variables and just using the numbers, but I wanted to do a little
+%coding finger memory practice. Also I need to again figure out the
+%difference in this language between global and local variables and how to
+%declare them as such. 
 
 % Now a little bit of trigonometry and a little bit of space
 
@@ -39,11 +62,38 @@ cartesian_coor = [cylind_coor(1)*cos(cylind_coor(2)); ... % these dots allow to 
               
 % EX: write the inverse relationship (cylind_coor = f(cartesian_coor))
 
+%VS:well, x^2 + y^2 = r^2, no? 
+cylind_coor = [sqrt((cartesian_coor(1))^2+(cartesian_coor(2))^2); ...
+               atan2(cartesian_coor(2), cartesian_coor(1)); ...
+               cartesian_coor(3)]
+           
+           %VS:did you want this like this or with the xyz values instead?
+           
 
 % EX: what is the the cylindrical coordinates of the B of Bruno Paillard on
 % a champagne bottle (cartesian coordinates = [0.866; -0.5; 0.15]) The
 % angle should be given in degrees.
 
+%(theta/180)*pi will convert the degree figure into radians for matlab to
+%use: 
+
+xbp = 0.866
+ybp = -0.5
+zbp = 0.15
+
+cylind_coorBP = [sqrt((0.866)^2+(-0.5)^2); ...
+               (atan2(-0.5, 0.866)/180)*pi; ...
+               0.15];
+
+           
+disp(cylind_coorBP);
+
+%this is a bit horrifying!Now I will try with the matlab automated version of this: 
+
+[bptheta, bprho, bpz] = cart2pol(xbp, ybp, zbp);
+disp('NOTE HERE');
+disp([bptheta, ((bprho/180)*pi), bpz]) %but here the answer is in radians??
+%I need help here...
 
 % Look again at the change of coordinates above. That is how you dealt with
 % trigonometry in the old world. The New World (that of linear Algebra) is
@@ -58,9 +108,14 @@ cartesian_coor = z*[0;0;1]+[cos(theta) -sin(theta) 0;sin(theta) cos(theta) 0;0 0
 % or again:
 Mrot = [cos(theta) -sin(theta) 0; ...
         sin(theta) cos(theta) 0; ...
-        0 0 1] 
+        0 0 1] %rotate around the z axis
+    
+Mrotx = [1 0 0; 0 cos(theta) -sin(theta); 0 sin(theta) cos(theta)];
+    
+Mroty = [-sin(theta) 0 cos(theta); 0 1 0; cos(theta) 0 sin(theta)];
+
 cartesian_coor = Mrot*[r; 0; z];
-% Much better no?
+% Much better no? VS: HORRIFYING IT'S SO LONG AGO...
 % Mrot is called a rotational matrix, it basically takes the xy plane and
 % rotates it by an angle of theta.
 
@@ -86,10 +141,17 @@ cartesian_coor = Mrot*[r; 0; z];
 Mrot_theta = ones(3); % this is matlab's 3 by 3 identity matrice
 Mrot_phi = ones(3); % you have to write the right matrices here
 
+
+
 cartesian_coor = Mrot_theta * Mrot_phi * [r; 0; 0];
 
 %EX: My house's coordinates are N45.111676, E2.279111 what are my house's
 % cartesian coordinates? (hints at the end if needed)
+
+r = 6371; %this is earth's radius
+
+
+
 
 
 
