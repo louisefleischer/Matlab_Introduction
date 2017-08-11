@@ -1,8 +1,19 @@
 % Not a lot of new things today: just a little bit more math :)
 
 % I am sorry if it's not clear, it's much easier with a drawing... 
-clearvars % cleanup QUESTION: how do you declare a global vs. local variable? 
+clearvars 
 
+% cleanup QUESTION: how do you declare a global vs. local variable? 
+% ANSWER: basically all variables are local unless you specify global in
+% the declaration of your variable the first time. Once you have a global
+% variable, you can call it in different scripts or functions. You would
+% use this mainly if you are working with constants (like gravity). I
+% personnaly have yet never used a global variable in Matlab (now that I
+% think about it, I surely should have). For more info, type <help global>
+% in the command window
+
+
+%% Triathlon
 % First let's refresh those vectors we learnt about yesterday. And try out
 % the story I told you yesterday. 
 
@@ -40,6 +51,7 @@ disp('Jameseuh travelled at the greatest velocity in the race (he had a velo :))
 %difference in this language between global and local variables and how to
 %declare them as such. 
 
+%% Trigonometry
 % Now a little bit of trigonometry and a little bit of space
 
 % First let's tell Matlab that we are working with symbolic objects (that 
@@ -62,7 +74,13 @@ cartesian_coor = [cylind_coor(1)*cos(cylind_coor(2)); ... % these dots allow to 
               
 % EX: write the inverse relationship (cylind_coor = f(cartesian_coor))
 
-%VS:well, x^2 + y^2 = r^2, no? 
+% VS:well, x^2 + y^2 = r^2, no? 
+
+% LM: this is perfectly mathematically correct. Now try writing those
+% cylindrical coordinates as an inverse rotation (instead of turning the
+% rtheta plane by a -theta angle to get the xy coordinates, turn the xy
+% plane by a theta angle to get the rtheta coordinates)
+
 cylind_coor = [sqrt((cartesian_coor(1))^2+(cartesian_coor(2))^2); ...
                atan2(cartesian_coor(2), cartesian_coor(1)); ...
                cartesian_coor(3)]
@@ -70,21 +88,28 @@ cylind_coor = [sqrt((cartesian_coor(1))^2+(cartesian_coor(2))^2); ...
            %VS:did you want this like this or with the xyz values instead?
            
 
-% EX: what is the the cylindrical coordinates of the B of Bruno Paillard on
+%% Exercise
+%EX: what is the the cylindrical coordinates of the B of Bruno Paillard on
 % a champagne bottle (cartesian coordinates = [0.866; -0.5; 0.15]) The
 % angle should be given in degrees.
 
-%(theta/180)*pi will convert the degree figure into radians for matlab to
-%use: 
+% (theta/180)*pi will convert the degree figure into radians for matlab to
+% use: 
 
 xbp = 0.866
 ybp = -0.5
 zbp = 0.15
 
+% LM: if you declare variables like xbp, ybp, zbp, it is good coding
+% practice to insert them in the future calculations so that if you have
+% values to change, you only change them once. For instance, in the cylind_coorBP below,
+% replace the numeric values by the variables you declared above.
+
 cylind_coorBP = [sqrt((0.866)^2+(-0.5)^2); ...
-               (atan2(-0.5, 0.866)/180)*pi; ...
+               (atan2(-0.5, 0.866)/180)*pi; ... % LM: Are you sure about your angle conversion? You also have some superfluous parenthesis here
                0.15];
 
+% LM: try it with the other method too 
            
 disp(cylind_coorBP);
 
@@ -93,8 +118,13 @@ disp(cylind_coorBP);
 [bptheta, bprho, bpz] = cart2pol(xbp, ybp, zbp);
 disp('NOTE HERE');
 disp([bptheta, ((bprho/180)*pi), bpz]) %but here the answer is in radians??
-%I need help here...
+% LM: it is indeed in radian, so if you want to convert to degrees you can
+% just multiply the value of bptheta by the correct number.
 
+%I need help here...
+% LM: Super Salers coming to your rescue!
+
+%% Rotational matrices
 % Look again at the change of coordinates above. That is how you dealt with
 % trigonometry in the old world. The New World (that of linear Algebra) is
 % just so much better. Here is why:
@@ -132,6 +162,22 @@ cartesian_coor = Mrot*[r; 0; z];
 % succession of one translation (r) and two rotations (one of an angle psi
 % and one of an angle phi)
 
+% LM: New Intermediate exercise here:
+% NEW EXERCISE: the AIRPLANE Exercise!!!
+% Your plane is on hold waiting to leave the SJC airport holding pattern to
+% go to LA. He is in steady flight in an helix (means that the sum of the
+% forces in the planes referential is equal to zero).  Look at the picture 
+% Helix_plane in this repository. 
+% g = 10 m/s^2
+% Your airplane weighs 20 kg, flies at 30 mps, it is going up a 5 degree slope and the
+% banking angle is of 40 deg. 
+% With what radius is it turning?
+% The Drag of your airplane is 5 Newtons, what thrust do you put? What is
+% in it terms of power?
+
+% this will require a little bit of projections, no rotational matrices but
+% it is to practice trigonometry in the engineering world
+
 % EX: looking up on the internet what the relationship is between x,y,z and
 % r,theta,psi (google angle names might be different) write the rotation
 % matrices for theta and phi. Only by running matlab, you should now be able
@@ -140,7 +186,6 @@ cartesian_coor = Mrot*[r; 0; z];
 
 Mrot_theta = ones(3); % this is matlab's 3 by 3 identity matrice
 Mrot_phi = ones(3); % you have to write the right matrices here
-
 
 
 cartesian_coor = Mrot_theta * Mrot_phi * [r; 0; 0];
